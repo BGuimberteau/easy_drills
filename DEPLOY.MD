@@ -41,3 +41,4 @@ Marten.configure :production do |config|
   config.allowed_hosts = ["217.69.8.156"]
 end
 ```
+- systemctl enable easy_drills.service
