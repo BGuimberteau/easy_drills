@@ -1,5 +1,4 @@
 Marten.configure :production do |config|
-  config.host = "127.0.0.1"
+  config.host = "0.0.0.0"
   config.port = 8000
-  config.allowed_hosts = ["127.0.0.1"]
 end
