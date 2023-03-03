@@ -1,6 +1,7 @@
 # The main routes map associates routes to handlers.
 # For more information please see: https://martenframework.com/docs/handlers-and-http/routing
 Marten.routes.draw do
+  path "/", HomeHandler, name: "home"
   path "/auth", Auth::ROUTES, name: "auth"
 
   if Marten.env.development?
