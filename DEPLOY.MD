@@ -15,3 +15,18 @@
 - git init --bare /home/igneb/easy_drills.git
 - igneb@217.69.8.156:/home/igneb/easy_drills.git
 - project empty
+- #!/bin/sh
+
+FILE_DIR=/srv/easy_drills/project
+BARE_DIR=/home/igneb/easy_drills.git
+
+git --work-tree=$FILE_DIR --git-dir=$BARE_DIR checkout -f deploy
+
+cd $FILE_DIR
+
+shards install
+crystal build src/server.cr -o bin/server --release
+crystal build manage.cr -o bin/manage --release
+bin/manage collectassets --no-input
+bin/manage migrate
+service easy_drills restart
